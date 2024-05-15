@@ -1,0 +1,9 @@
+pip freeze > requirements.txt
+----------------------------------------------------------------------------
+1. react-router-dom: paquete para tener multiples paginas en el frontend, o espesificar rutas en react
+----------------------------------------------------------------------------
+2. react-hot-toast: paquete para mostrar alertas de mensajes
+-----------------------------------------------------------------------------
+3.  axios: paquete que permite hacer peticiones en este caso a el backend, mas facil 
+-------------------------------------------------------------------------------
+4. react-hook-form: paquete para validar formularios pero existen mejores

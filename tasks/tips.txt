@@ -1,0 +1,12 @@
+- 1er paquete django rest framework: este métodos HTTP estandarizados como GET (recuperar), POST (crear), PUT (actualizar) y DELETE (eliminar).
+-se tiene que agregar en el settings.py de el proyecto, en la seccion de INSTALLED_APP:[], debajo antes de las aplicaciones, 'rest_framework',.
+-----------------------------------------------------------------------------------------
+-2do paquete django-cors-headers: este es lo que da permisos que permiten la comunicacion entre servidores.
+-se tiene que agregar en el settings.py de el proyecto, en la seccion de INSTALLED_APP:[], debajo antes de las aplicaciones, 'corsheaders',.  "corsheaders.middleware.CorsMiddleware", esto se tiene que agregar despues de "django.middleware.common.CommonMiddleware", en MIDDLEWARE = [],  esto anterior es para activarlo.
+-CORS_ALLOWED_ORIGINS = []  esto hay ponerlo en el settings.py de el proyecto de ultimo aqui se pondran, con que servidor se estara conectando, en este caso es el servidor de react con vite 5173
+-------------------------------------------------------------------------------------------
+3ro paquete coreapi: este paquete es para documentar no es necesaria
+---------------------------------------------------------------------------------------------
+-------mandar valores desde django a react con django rest framework.-----------------
+-Se crea un archivo dentro de la aplicacaion, llamado serializer.py ajuro tiene que llamarse asi. ir al archivo para ver.
+--------------------------------------------------------------------------------------------
