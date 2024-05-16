@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { createTask, deleteTask, updateTask, getTask } from '../api/task.api'
 // se importa useNavigate para redireccionar a otro lugar, useParams sierve para extraer los parametros de la url
 import { useNavigate, useParams} from 'react-router-dom'
+// paquete de react-hot-toast para mostrar alertas, poner en minusculas
+import {toast} from 'react-hot-toast'
 // aqui habra un formulario donde se estaran agtegano las tareas
 export default function TaskFormPage(){
     // {register} esto valida un formualrio y  le da un id y un name. handleSubmit controla el enviode formularios, formState: { errors } lo que hace es mostrar un mensaje de error
@@ -19,9 +21,24 @@ const params = useParams()
 const onSubmit = handleSubmit(async data => {
     if (params.id){
         await updateTask(params.id, data)
+        toast.success('Tarea actualizada correctamente', {
+            position: "bottom-right",
+            style: {
+                background: "#fff",
+                color: "#000"
+            }
+        })
     }else{
         // envio de datos a crear y tiene que ser asincrona
         await createTask(data)
+        // mostrando alertas correctas al crear tarea
+        toast.success('Tarea creada correctamente', {
+            position: "bottom-right",
+            style: {
+                background: "#fff",
+                color: "#000"
+            }
+        })
     }
     
     // redireccionando
@@ -64,6 +81,14 @@ useEffect(()=>{
                     if (accepted){ 
                         // eliminando tarea cpor medio del id tiene que ser await la eliminacion es decir asincrona
                         await deleteTask(params.id)
+                        // mostrando alertas correctas al crear tarea
+                        toast.success('Tarea eliminada correctamente', {
+                            position: "bottom-right",
+                            style: {
+                                background: "#fff",
+                                color: "#000"
+                            }
+                        })
                         navigate("/");
                     }
                 }}>Eliminar</button>}
