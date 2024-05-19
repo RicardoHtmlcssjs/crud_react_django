@@ -63,16 +63,18 @@ useEffect(()=>{
 
 // el envio de valores a el backend se hacen de task.api.js
     return (
-        <div>
+        <div className='max-w-xl mx-auto'>
             <form onSubmit={onSubmit}>
                 {/* se le pasan como atributo */}
                 {/* register se le agregan los valores como un objeto pero orita se le esta pidiendo todo, se le pasan como parametros, 1ro el name y el id, 2do como objeto requerido */}
-                <input type="text" placeholder="Titulo"  {...register("title", { required: true })}/>
+                <input type="text" placeholder="Titulo"  {...register("title", { required: true })}
+                className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'/>
                 {/* mostrando mensajes de errores si se cumple el error mostrara eso*/}
                 {errors.title && <span>Este campo es requerido</span>}
-                <textarea  cols="30" rows="3" placeholder="Descripcion" {...register("description", { required: true })}></textarea>
+                <textarea  cols="30" rows="3" placeholder="Descripcion" {...register("description", { required: true })}
+                className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'></textarea>
                 {errors.description && <span>Este campo es requerido</span>}
-                <button>Guardar</button>
+                <button className='bg-indigo-500 p-3 rounded-lg block w-full mt-3'>Guardar</button>
                 {/* condicional si se esta reciviebndo un parametro por id muestra el boton eliminar  */}
                 {/* para eliminar hay que hacer una consulta a el backend en , task.api.js*/}
                 {params.id &&  <button onClick={async ()=>{
@@ -91,7 +93,9 @@ useEffect(()=>{
                         })
                         navigate("/");
                     }
-                }}>Eliminar</button>}
+                }}
+                className='bg-red-500 p-3 rounded-lg block w-full mt-3'
+                >Eliminar</button>}
             </form>
         </div>
     )
